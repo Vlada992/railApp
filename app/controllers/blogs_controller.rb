@@ -3,8 +3,8 @@ class BlogsController < ApplicationController
 
   # GET /blogs
   # GET /blogs.json
+  #index is for showing all instance var @blogs records
   def index
-    p @blogs
     @blogs = Blog.all
   end
 
