@@ -1,8 +1,11 @@
 class PagesController < ApplicationController
   def home    
-    @my_v = "ovo saljemo iz home metode u vies/home.html.erb"
-    @posts = Blog.all
-    @skils= Skill.all
+    @inicial_h = {my_name: "Vladan", my_surname: "Petrovic"}
+    @posts = Blog.all #calling instance of Blog model(class)
+    @skils = Skill.all #calling instance of Skill model(class), adding in inst. var and send to view folder, for .html.erb files
+
+    @port_f= Portfolio.all
+    
   end
 
   def about
@@ -10,6 +13,8 @@ class PagesController < ApplicationController
 
   def contact
   end
+
+
 end
 
  #routes.rb when recieve get request for /pages/home, route to that page from views/home.html.erb and connect to home method/action

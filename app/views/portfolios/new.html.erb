@@ -1,0 +1,37 @@
+<h1>Create a new Portfolio item</h1>
+
+
+
+<%= form_with(model: @portfolio_item, local: true) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :subtitle %>
+    <%= form.text_field :subtitle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+
+<!-- so here, we take instance variable, filled with new Portfolio class instance, 
+#@portfolio_item here is just an  Array with hashes with values of hashes of nil here, empty!
+so we are saying, take each of Array elements, so take EACH HASH OBJECT with empty value
+portfolio_item ARRAY OF EMPYY VALUE HASHE OBJECTS 
+
+#text_field and text_area
+-->

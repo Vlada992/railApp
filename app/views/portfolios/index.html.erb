@@ -1,14 +1,28 @@
 <h1>Portfolio</h1>
 
+
 <% @portfolio_items.each do |item| %>
-<p> <%=  item['title']  %> </p>
-<p> <%=  item['subtitle']  %> </p>
-<p> <%=  item['body']  %> </p>
-<p> <%= image_tag  item['thumb_image']  %> </p>
+<%
+#define some pre variables to short code down
+ item_i, len = item['title'], item['title'].length
+%>
+
+
+
+
+
+<!--this is functionality on each array item[db each hash] to do something on them -->
+<h2><mark> <%= item_i[0, len -1] +  " "  %> <h1 style=color:darkred> <%=  item_i[-1]%> </h1>  <mark></h2>
+
+
+
+
+<h3> <%=  item['subtitle']  %> </h3>
+<h5> <%=  item['body']  %> </h5>
+<p><mark> <%= image_tag  item['thumb_image'] unless item['thumb_image'].nil?  %> </mark></p>
+
 
 <% end %>
-
-
 
 
 
