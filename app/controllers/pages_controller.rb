@@ -17,3 +17,5 @@ end
 
  #actually routes.rb when recieve GET request for /pages/home, coonect to this method, add functinality and pass control to home method
  #and home method will with same views page, show you  home.html.erb view page 
+
+ #instance variables here, DOES NOT need to be returned from this 3 methods, they are accessible without that in views.
