@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   def home    
     @my_v = "ovo saljemo iz home metode u vies/home.html.erb"
     @posts = Blog.all
+    @skils= Skill.all
   end
 
   def about
