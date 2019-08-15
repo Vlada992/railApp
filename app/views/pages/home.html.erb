@@ -5,7 +5,42 @@
 <h1>Blogs</h1>
 <%= @posts.inspect %>
 
+<% @posts.each_with_index do |post, ind| %>
+
+<h3> <%="My name is #{@inicial_h[:my_name]}, post title num is: #{post.title.split("post")[1]} and my surname is #{@inicial_h[:my_surname]}!!" %> </h3>
+<h5> <%=post.title %> </h5>
+<h5> <%=post.body %> </h5>
+
+
+<div>
+
+<h5> <%=@port_f.inspect %> </h5>
+
+<h5>  <%=@port_f.inspect %> </h5>
+
+</div>
+
+
+
+
+<% end %>
+
+
 <h1>Skills</h1>
-<%= @posts.inspect %>
+<%= @posts.inspect %> 
+
+
+
+<!-- THis IS VIEW FROM MODAL/VIEW/CONTROLLER
+it gets it's variables to use/data to use, from CONTROLLER(pages_controller.rb)
+#and we can even embed ruby code here in home.html.erb files. so actually html/rb files, to add some more functionaliy on those data
+@posts.each => will loop trought Array we get from Blog.all
+Blog.all will call the model and all method on that model(object class instance) which will return us a array with hashes of data
+
+my blog post is 7
+:my_name is prop of hash, we hit it, with Symbol class instance keyword :<name>
+-->
+
+
 
 
