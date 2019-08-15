@@ -12,7 +12,7 @@
 
 
 
-<h1 style=color:darkred> <%= link_to item_i, portfolio_path(id)  %>   </h1>
+<h1 style=color:darkred> <%= link_to item_i, portfolio_show_path(id)  %>   </h1>
 <h3> <%=  item['subtitle']  %> </h3>
 <h5> <%=  item['body']  %> </h5>
 <p> <mark> <%= image_tag  img unless img.nil?  %> </mark> </p>
