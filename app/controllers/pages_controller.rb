@@ -3,7 +3,6 @@ class PagesController < ApplicationController
     @inicial_h = {my_name: "Vladan", my_surname: "Petrovic"}
     @posts = Blog.all #calling instance of Blog model(class)
     @skils = Skill.all #calling instance of Skill model(class), adding in inst. var and send to view folder, for .html.erb files
-
     @port_f= Portfolio.all
     
   end

@@ -1,5 +1,11 @@
 <h1>Portfolio</h1>
 
+<a href='portfolios/new'>Create new item</a>
+<%=link_to "Create new item", new_portfolio_url %>
+
+
+
+
 
 <% @portfolio_items.each do |item| %>
 <%
@@ -8,19 +14,13 @@
 %>
 
 
-
-
-
-<!--this is functionality on each array item[db each hash] to do something on them -->
-<h2><mark> <%= item_i[0, len -1] +  " "  %> <h1 style=color:darkred> <%=  item_i[-1]%> </h1>  <mark></h2>
-
-
-
+<h2><h1 style=color:darkred> <%= item_i %>  </h1>  </h2>
 
 <h3> <%=  item['subtitle']  %> </h3>
 <h5> <%=  item['body']  %> </h5>
-<p><mark> <%= image_tag  item['thumb_image'] unless item['thumb_image'].nil?  %> </mark></p>
+<p> <mark> <%= image_tag  item['thumb_image'] unless item['thumb_image'].nil?  %> </mark> </p>
 
+<%= link_to "Edit this item", edit_portfolio_path(item[:id]) %>
 
 <% end %>
 
