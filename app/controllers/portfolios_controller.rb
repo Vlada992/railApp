@@ -12,22 +12,20 @@ class PortfoliosController < ApplicationController
 
     def create
         @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
-        #@test_var = params
+
         respond_to do |format|
           if @portfolio_item.save
 
             format.html { redirect_to portfolios_path, notice: 'PORTFOLIO was created! bravo!!' }
-            #format.json { render :show, status: :created, location: @portfolio_item }
           else
             format.html { render :new }
-            #format.json { render json: @portfolio_item.errors, status: :unprocessable_entity }
           end
         end
       end
 
 
       def edit    #route will navigate to 2/edit and pass control to edit method which will interact with edith.html.erb view
-        @show_param = params #great! {controller: portfolio, id:1, etc}
+        @show_param = params                            # {controller: portfolio, id:1, etc}
         @portfolio_item = Portfolio.find(params[:id]) #pass id prop form Portfolio instance object/hash {}
       end
 
@@ -38,21 +36,33 @@ class PortfoliosController < ApplicationController
         respond_to do |format|
           if @portfolio_item.update(params.require(:portfolio).permit(:title, :subtitle, :body))
             format.html { redirect_to portfolios_path, notice: 'Portfolio record was updated!' }
-            #format.json { render :show, status: :ok, location: @blog }
-
           else
             format.html { render :edit }
-            #format.json { render json: @blog.errors, status: :unprocessable_entity }
           end
         end
       end
 
 
 
-      def show #controller, interact with modal and view MVC pattern
+    def show #controller, interact with modal and view MVC pattern
         @show_param_1 = params
         @portfolio_item = Portfolio.find(params[:id]) #again, find database record we typed in url when click on show
     end
+
+
+    def destroy
+        #perform a lookup for specific record
+        @portfolio_item = Portfolio.find(params[:id])
+
+        #destroy the record from database
+        @portfolio_item.destroy
+
+        #redirect
+        respond_to do |format|
+          format.html { redirect_to portfolios_url, notice: 'Record was removed!.' }
+        end
+    end
+
 
 
 
