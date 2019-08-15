@@ -9,6 +9,7 @@ class PortfoliosController < ApplicationController
         @portfolio_item = Portfolio.new #databse method to return new Array with hashes with emtpy values
     end
 
+
     def create
         @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
         #@test_var = params
@@ -45,6 +46,13 @@ class PortfoliosController < ApplicationController
           end
         end
       end
+
+
+
+      def show #controller, interact with modal and view MVC pattern
+        @show_param_1 = params
+        @portfolio_item = Portfolio.find(params[:id]) #again, find database record we typed in url when click on show
+    end
 
 
 

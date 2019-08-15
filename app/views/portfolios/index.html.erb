@@ -1,26 +1,22 @@
 <h1>Portfolio</h1>
 
-<a href='portfolios/new'>Create new item</a>
-<%=link_to "Create new item", new_portfolio_url %>
-
-
-
 
 
 <% @portfolio_items.each do |item| %>
-<%
+
+<% 
 #define some pre variables to short code down
- item_i, len = item['title'], item['title'].length
+ item_i, len, id = item['title'], item['title']['length'], item['id']
+ img = item['thumb_image']
 %>
 
 
-<h2><h1 style=color:darkred> <%= item_i %>  </h1>  </h2>
 
+<h1 style=color:darkred> <%= link_to item_i, portfolio_path(id)  %>   </h1>
 <h3> <%=  item['subtitle']  %> </h3>
 <h5> <%=  item['body']  %> </h5>
-<p> <mark> <%= image_tag  item['thumb_image'] unless item['thumb_image'].nil?  %> </mark> </p>
-
-<%= link_to "Edit this item", edit_portfolio_path(item[:id]) %>
+<p> <mark> <%= image_tag  img unless img.nil?  %> </mark> </p>
+<%= link_to "Edit!!", edit_portfolio_path(id) %>
 
 <% end %>
 

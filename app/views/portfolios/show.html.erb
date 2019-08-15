@@ -1,0 +1,12 @@
+<h1>Show that record</h1>
+
+<% item, img = @portfolio_item, @portfolio_item['main_image']
+
+%>
+
+<%= image_tag img unless img.nil?  %>
+<h1> <%= item['title'] %>  </h1>
+<em><%= item.subtitle %></em>
+<p><%=  item.body %></p>
+
+<p><%=  @show_param_1 %></p>
