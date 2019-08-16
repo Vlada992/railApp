@@ -1,8 +1,13 @@
 class PortfoliosController < ApplicationController
 
     def index
-        @portfolio_items = Portfolio.all #call instance on Portfolio class(modal) and put with .all method all hashes in array
+        @portfolio_items = Portfolio.all
+         #Portfolio.all  #call instance on Portfolio class(modal) and put with .all method all hashes in array
       
+    end
+
+    def angular
+      @angular_portfolio_items = Portfolio.angular
     end
 
     def new

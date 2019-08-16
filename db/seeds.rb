@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+3.times do |topic|
+    Topic.create!(
+        title: "Topic #{topic}"
+    )
+
+end
+
+"3 topics created here"
 
 10.times do |num_blog|
     Blog.create!(
@@ -20,7 +28,8 @@
               Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
                nisi ut aliquid ex ea commodi consequatur?
                 Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
-         vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+         vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+         topic_id: Topic.last.id #last Topic created will be parent of all these auto created 10 blog post
     )
 end
 
@@ -37,10 +46,22 @@ end
 p "5 Skills post creates"
 
 
-9.times do |port_item|
+8.times do |port_item|
     Portfolio.create!(
         title:"Portoflio title is #{port_item}",
-        subtitle: "my great service!!",
+        subtitle: "Ruby on Rails",
+        body: "ovo ide u bodiju neke gluposti cisto tako nista bitno previse, bez brige bla bla bla",
+        main_image:"https://via.placeholder.com/600x400",
+        thumb_image:"https://via.placeholder.com/350x200"
+    )
+end
+
+
+
+1.times do |port_item|
+    Portfolio.create!(
+        title:"Portoflio title is #{port_item}",
+        subtitle: "Angular",
         body: "ovo ide u bodiju neke gluposti cisto tako nista bitno previse, bez brige bla bla bla",
         main_image:"https://via.placeholder.com/600x400",
         thumb_image:"https://via.placeholder.com/350x200"

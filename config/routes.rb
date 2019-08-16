@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :portfolios, except: [:show]
 
+  get 'angular-items', to: 'portfolios#angular'
   get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'
 
   get 'about', to: 'pages#about'
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'pages#home'
+  root to: 'pages#home'      #localhost:3000 will navigate to controller pages#home method and controller
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

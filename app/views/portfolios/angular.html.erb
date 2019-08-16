@@ -1,0 +1,23 @@
+<h1>Angular Portfolio items [ANGULAR] </h1>
+
+
+<% @angular_portfolio_items.each do |item| %>
+
+<% 
+#define some pre variables to short code down
+ item_i, len, id = item['title'], item['title']['length'], item['id']
+ img = item['thumb_image']
+%>
+
+
+
+<h1 style=color:darkred> <%= link_to item_i, portfolio_show_path(id)  %>   </h1>
+<h3> <%=  item['subtitle']  %> </h3>
+<h5> <%=  item['body']  %> </h5>
+<p> <mark> <%= image_tag  img unless img.nil?  %> </mark> </p>
+<%= link_to "Edit!!", edit_portfolio_path(id) %>
+<%= link_to 'Delete Portfolio item', portfolio_path(id), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
+
+
