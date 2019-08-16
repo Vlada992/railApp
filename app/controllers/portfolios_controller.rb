@@ -10,20 +10,25 @@ class PortfoliosController < ApplicationController
       @angular_portfolio_items = Portfolio.angular
     end
 
+
+
+
     def new
         @portfolio_item = Portfolio.new #databse method to return new Array with hashes with emtpy values
+        3.times { @portfolio_item.technologies.build } #make 3 instance of tech portfolio
     end
 
 
     def create
-        @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
+       @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+      # 3.times { @portfolio_item.technologies.build } #make 3 instance of tech portfolio
 
         respond_to do |format|
           if @portfolio_item.save
     
             format.html { redirect_to portfolios_path, notice: 'PORTFOLIO was created! bravo!!' }
           else
-            format.html { render :new }
+            format.html { render :new}
           end
         end
       end
@@ -54,6 +59,7 @@ class PortfoliosController < ApplicationController
     def show #controller, interact with modal and view MVC pattern
         @show_param_1 = params
         @portfolio_item = Portfolio.find(params[:id]) #again, find database record we typed in url when click on show
+        
     end
 
 

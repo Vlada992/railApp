@@ -9,4 +9,23 @@
 <em><%= item.subtitle %></em>
 <p><%=  item.body %></p>
 
+
+<p>Portfolios usedd:</p>
+
+<%= @portfolio_item.inspect%>
+
+
+<% @portfolio_item.technologies.each do |t| %>
+
+<p>DA LI RADI OVDE?</p>
+
+<p><%=  t.name
+    #byebug
+%> </p>
+
+
+<% end %>
+
+
+
 <p><%=  @show_param_1 %></p>

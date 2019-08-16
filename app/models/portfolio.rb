@@ -1,5 +1,5 @@
 class Portfolio < ApplicationRecord
-    has_many :technologies
+    has_many :technologies           #we added has_many thta menas his childrens are :technologies
 
     accepts_nested_attributes_for :technologies, reject_if: lambda { |atte| atte['name'].blank? }
 
