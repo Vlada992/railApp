@@ -1,5 +1,11 @@
 <h1>Create a new Portfolio item</h1>
 
+<h2>
+<p>THese ar self default values for this record, images main and thumb:</p>
+<%= @portfolio_item.main_image %>
+<br>
+<%= @portfolio_item.thumb_image %>
+</h2>
 
 
 <%= form_with(model: @portfolio_item, local: true) do |form| %>

@@ -20,13 +20,15 @@ class PortfoliosController < ApplicationController
 
         respond_to do |format|
           if @portfolio_item.save
-
+    
             format.html { redirect_to portfolios_path, notice: 'PORTFOLIO was created! bravo!!' }
           else
             format.html { render :new }
           end
         end
       end
+
+
 
 
       def edit    #route will navigate to 2/edit and pass control to edit method which will interact with edith.html.erb view
