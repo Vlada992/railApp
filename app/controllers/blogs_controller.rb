@@ -64,6 +64,7 @@ class BlogsController < ApplicationController
 
 
   def toggle_status
+    #blog@ = Blog.friendly.find(params[:id])
     
     if @blog.draft?
       @blog.published!
