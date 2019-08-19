@@ -1,7 +1,8 @@
 module Placeholder
 
     extend ActiveSupport::Concern
-    def self.image_generator(height:, width:)
+    def self.image_generator(height:, width:)       #{height:' ', width:''} => hash
+        #you can write hash without curly braces, when hash is a parametar in brackets
         "https://via.placeholder.com/#{height}x#{width}"
     end
 
