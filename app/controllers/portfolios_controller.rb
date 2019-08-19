@@ -1,7 +1,9 @@
 class PortfoliosController < ApplicationController
 
     def index
-        @portfolio_items = Portfolio.all
+        @portfolio_items = Portfolio.all   # Portfolio.find_by_sql("SELECT portfolios.* from portfolios")
+
+
          #Portfolio.all  #call instance on Portfolio class(modal) and put with .all method all hashes in array
       
     end
@@ -14,7 +16,7 @@ class PortfoliosController < ApplicationController
 
 
     def new
-        @portfolio_item = Portfolio.new #databse method to return new Array with hashes with emtpy values
+        @portfolio_item = Portfolio.new #database method to return new Array with hashes with emtpy values new port object
         3.times { @portfolio_item.technologies.build } #make 3 instance of tech portfolio
     end
 
