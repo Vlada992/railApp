@@ -22,7 +22,7 @@ class PortfoliosController < ApplicationController
 
 
     def create
-       @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+       @portfolio_item = Portfolio.new( portfolio_params )
       # 3.times { @portfolio_item.technologies.build } #make 3 instance of tech portfolio
 
         respond_to do |format|
@@ -48,7 +48,7 @@ class PortfoliosController < ApplicationController
       def update
         @portfolio_item = Portfolio.find(params[:id])
         respond_to do |format|
-          if @portfolio_item.update(params.require(:portfolio).permit(:title, :subtitle, :body))
+          if @portfolio_item.update( portfolio_params)
             format.html { redirect_to portfolios_path, notice: 'Portfolio record was updated!' }
           else
             format.html { render :edit }
@@ -78,10 +78,21 @@ class PortfoliosController < ApplicationController
         end
     end
 
+    
+    private
 
+    def portfolio_params
+      params.require(:portfolio).permit(:title, 
+                                        :subtitle, 
+                                        :body, 
+                                        technologies_attributes: [:name]
+                                       )
+    end
 
 
 end
+
+
 
 
 
@@ -92,3 +103,8 @@ end
 #these methods are all built in in Rails. so index/create/delete/add etc update...
 #so i guess Portfolio class that also extends from someone, with .new will add us new instance object, to use to fill
 #form submit part will call the BUILT IN  dev create end method here and pasas arguments we filled in form, to it
+
+
+#params.require(:portfolio).permit(:title, :subtitle, :body) -for update
+
+# params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]) =. for create
