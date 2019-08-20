@@ -1,9 +1,6 @@
 module ApplicationHelper
      #it will enter to look for all the methods in thsi global application helper
-    
-
      def login_helper
-
          if current_user.is_a?(User)
              link_to "Logout", destroy_user_session_path, method: :delete
            else
@@ -11,7 +8,13 @@ module ApplicationHelper
             "<br>".html_safe +
             (link_to "Login", new_user_session_path)
          end
+     end
 
+     def source_helper(layout_name)
+         if session[:source] # if is true, if not nil 
+            greet_v = "Thanks for visiting me from #{session[:source]} and you are on #{layout_name}"
+            content_tag(:p, greet_v, class: "source-greeting")
+         end 
      end
 
 

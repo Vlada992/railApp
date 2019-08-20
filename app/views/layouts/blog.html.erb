@@ -16,22 +16,23 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-   
+
     <h1> <%= current_user.name.inspect if current_user %> </h1>
 
-    
+
     <%= login_helper %>
 
 
 
     <%= yield %>
 
-    <%= render "shared/nav", location: 'bottom' %>
+    <%= render("shared/nav", location: 'bottom') %>
 
 
-    <% if session[:source] %>
-    <h1> Thanks for visiting me from <%= session[:source]%>!!! </h1>
-    <% end %>
+    <%= source_helper('blog') %>
+
+
+
 </body>
 
 </html>
