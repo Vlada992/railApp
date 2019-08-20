@@ -26,4 +26,22 @@
 
 
 
-<p><%=  @show_param_1 %></p>
+<p><%=  @show_param_1.inspect %></p>
+
+<p><%=  Portfolio.new.inspect %></p>
+
+<p><%=  Portfolio.inspect %></p>
+
+<p><%=  Portfolio.angular.inspect    %></p>
+<p><%=  Portfolio.where(subtitle: 'Angular').inspect %></p>
+<p><%=  session[:source] %></p>
+
+
+<p><%=  params.require(:id).inspect %></p>
+
+
+
+
+
+
+

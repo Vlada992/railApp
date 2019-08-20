@@ -1,5 +1,5 @@
  module DeviseWhitelist
-    extend ActiveSupport::Concern        #all methods from activeSuport modules
+    extend ActiveSupport::Concern        #all methods from activeSuport modules extend ActiveSupport.Concern (module)
 
     included do
         before_action :configure_permitted_parameters, if: :devise_controller?
