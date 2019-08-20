@@ -24,7 +24,6 @@ class PortfoliosController < ApplicationController
 
     def create
        @portfolio_item = Portfolio.new( portfolio_params )
-      # 3.times { @portfolio_item.technologies.build } #make 3 instance of tech portfolio
 
         respond_to do |format|
           if @portfolio_item.save
@@ -42,6 +41,8 @@ class PortfoliosController < ApplicationController
       def edit    #route will navigate to 2/edit and pass control to edit method which will interact with edith.html.erb view
         @show_param = params                            # {controller: portfolio, id:1, etc}
         @portfolio_item = Portfolio.find(params[:id]) #pass id prop form Portfolio instance object/hash {}
+        #3.times { @portfolio_item.technologies.build } #make 3 instance of tech portfolio
+
       end
 
 

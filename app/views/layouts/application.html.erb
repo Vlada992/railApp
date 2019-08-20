@@ -20,7 +20,7 @@
   <p class="alert"><%= alert %></p>
 
 
-    <%= render "shared/nav" %>
+    <%= render("shared/nav", location: 'top') %>
 
 
 <h1> <%= current_user.name.inspect if current_user %> </h1>
