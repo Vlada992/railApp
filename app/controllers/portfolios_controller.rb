@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+  layout "portfolio" # same as ===> layout("portfolio")
 
     def index
         @portfolio_items = Portfolio.all   # Portfolio.find_by_sql("SELECT portfolios.* from portfolios")
