@@ -60,4 +60,6 @@ gem 'devise', '~> 4.6', '>= 4.6.2'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
+gem 'petrovic_view_tool', git: 'https://github.com/Vlada992/petrovic_view_tool'
+
 

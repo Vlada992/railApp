@@ -18,4 +18,33 @@ module ApplicationHelper
      end
 
 
+     # before_action :set_copyright   
+    def copyright_generator
+        #@copyright = MyViewTool::Rendered.copyright('Vladan Petrovic', "All rights reserved")
+        PetrovicViewTool::Rendered.copyright('Vladan Petrovic', "All rights reserved")
+    end
+
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=begin
+before_action :set_copyright                  #METHOD of this class to call
+
+    def set_copyright
+        #@copyright = MyViewTool::Rendered.copyright('Vladan Petrovic', "All rights reserved")
+        @copyright = PetrovicViewTool::Rendered.copyright('Vladan Petrovic', "All rights reserved")
+    end
+=end
