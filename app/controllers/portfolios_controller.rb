@@ -1,6 +1,8 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]  # before_action(arg, arg, arg)
   layout "portfolio" # same as ===> layout("portfolio")
+  access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :update, :edite]}, site_admin: :all
+
 
     def index
         @portfolio_items = Portfolio.all   # Portfolio.find_by_sql("SELECT portfolios.* from portfolios")

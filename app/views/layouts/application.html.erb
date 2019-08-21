@@ -23,10 +23,13 @@
     <%= render("shared/nav", location: 'top') %>
 
 
-<h1> <%= current_user.name.inspect if current_user %> </h1>
+<h1> TO JE:<%= current_user.name.inspect if current_user %> </h1>
 
 
   <%= login_helper %>
+
+
+  <%= current_user.inspect%>
   <p> a register</p>
 
   
