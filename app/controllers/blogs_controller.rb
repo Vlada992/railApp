@@ -5,8 +5,10 @@ class BlogsController < ApplicationController
   # GET /blogss
   # GET /blogs.json
   #index is for showing all instance var @blogs records
+
   def index
-    @blogs = Blog.all
+    #@blogs = Blog.all
+    @blogs = Blog.special_blogs
     @page_title = "My portfolio Blog" #this instance var will go into layout/application.html to render as title
   end
 

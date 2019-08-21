@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
     include SetSource #method for setting query source string in session prop
     include CurrentUserConcern
     include DefaultPageContent
+
     
 end
 

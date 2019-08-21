@@ -1,12 +1,10 @@
 class PortfoliosController < ApplicationController
+  before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]  # before_action(arg, arg, arg)
   layout "portfolio" # same as ===> layout("portfolio")
 
     def index
         @portfolio_items = Portfolio.all   # Portfolio.find_by_sql("SELECT portfolios.* from portfolios")
-
-
          #Portfolio.all  #call instance on Portfolio class(modal) and put with .all method all hashes in array
-      
     end
 
     def angular
@@ -39,8 +37,8 @@ class PortfoliosController < ApplicationController
 
 
       def edit    #route will navigate to 2/edit and pass control to edit method which will interact with edith.html.erb view
-        @show_param = params                            # {controller: portfolio, id:1, etc}
-        @portfolio_item = Portfolio.find(params[:id]) #pass id prop form Portfolio instance object/hash {}
+        @show_param = params                         
+        #@portfolio_item = Portfolio.find(params[:id]) #pass id prop form Portfolio instance object/hash {}
         #3.times { @portfolio_item.technologies.build } #make 3 instance of tech portfolio
 
       end
@@ -48,7 +46,7 @@ class PortfoliosController < ApplicationController
 
       #update method will be fired after we click update portfolio in edit.html page, which will activate this controller method
       def update
-        @portfolio_item = Portfolio.find(params[:id])
+        #@portfolio_item = Portfolio.find(params[:id])
         respond_to do |format|
           if @portfolio_item.update( portfolio_params)
             format.html { redirect_to portfolios_path, notice: 'Portfolio record was updated!' }
@@ -62,14 +60,13 @@ class PortfoliosController < ApplicationController
 
     def show #controller, interact with modal and view MVC pattern
         @show_param_1 = params
-        @portfolio_item = Portfolio.find(params[:id]) #again, find database record we typed in url when click on show
-        
+        #@portfolio_item = Portfolio.find(params[:id])        
     end
 
 
     def destroy
         #perform a lookup for specific record
-        @portfolio_item = Portfolio.find(params[:id])
+        #@portfolio_item = Portfolio.find(params[:id])
 
         #destroy the record from database
         @portfolio_item.destroy
@@ -89,6 +86,11 @@ class PortfoliosController < ApplicationController
                                         :body, 
                                         technologies_attributes: [:name]
                                        )
+    end
+
+
+    def set_portfolio_item
+      @portfolio_item = Portfolio.find(params[:id])
     end
 
 

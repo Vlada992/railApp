@@ -5,7 +5,17 @@ class Blog < ApplicationRecord
 
     validates_presence_of :title, :body #not gonna alow db/instance creation of blog class without title or body key
 
-    belongs_to :topic          #this model(Blog class) belonfs to Topic model(Topic class)
+    belongs_to :topic          #this model(Blog class) belongs to Topic model(Topic class)
+
+    def self.special_blogs
+        all
+    end
+
+    def self.featured_blogs
+        limit(2)
+    end
+
+    
 end
 
 
