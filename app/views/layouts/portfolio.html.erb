@@ -17,16 +17,11 @@
     <p class="alert"><%= alert %></p>
 
 
-    <h1> <%= current_user.name.inspect if current_user %> </h1>
-
     <%= login_helper %>
 
 
     <%= yield %>
-
     <%= render("shared/nav", location: 'top')  %>
-
-
     <%= source_helper('portfolio') %>
 
 
