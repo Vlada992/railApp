@@ -1,38 +1,30 @@
 
- <h1> HI <%= current_user.first_name   %> </h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">Cover</h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link active" href="#">Home</a>
+        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<h1>Blogs</h1>
+  <main role="main" class="inner cover">
+    <h1 class="cover-heading">Cover your page.</h1>
+    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+    <p class="lead">
+      <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+    </p>
+  </main>
 
-<% @posts.each_with_index do |post, ind| %>
-
-<h3> <%="My name is #{@inicial_h[:my_name]}, post title num is: #{post.title.split("post")[1]} and my surname is #{@inicial_h[:my_surname]}!!" %> </h3>
-<h5> <%=post.title %> </h5>
-<h5> <%=post.body %> </h5>
-
-
-<div>
-
-
-
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    </div>
+  </footer>
 </div>
-
-
-
-
-<% end %>
-
-
-<h1>Skills</h1>
-
-
-
-<hr>
-
-
-<%= content_tag(:h1, class: "my-special-class") do %>
-Hi, i am an paragraph tag into erb!!!
-<% end %>
 
 
 
